@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WpfApp1
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void displayText(string theText)
+        { 
+            theText = theText.Trim();
+            MessageBox.Show($"hello {theText}");
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            displayText(firstnameText.Text);
+        }
+
+        bool tagEric = false;
+
+        // TextChangedEventHandler delegate method.
+        private void textChangedEventHandler(object sender, TextChangedEventArgs args)
+        {
+            
+        } // end textChangedEventHandler
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                displayText(firstnameText.Text);
+                firstnameText.Text = firstnameText.Text + "are uou shore";
+                tagEric = true;
+            }
+        }
+    }
+}
